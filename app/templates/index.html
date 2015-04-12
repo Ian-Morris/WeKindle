@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}WeKindle{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>{% if current_user.is_authenticated() %} Welcome back,  {{ current_user.username }}{% else %}Hello, Welcome to WeKindle{% endif %}!</h1>
+</div>
+<div>
+    {% if current_user.is_authenticated() %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+</div>
+<ul class="subscriptions">
+    {% if current_user.is_authenticated() %}
+        {% for subscription in subscriptions %}
+            <li class="subscription">
+                <div class="subscribed-account">
+                    <div class="account-name">{{ subscription.name }}</div>
+                    <div class="account-title">{{ subscription.title }}</div>
+                    <div class="account-description">{{ subscription.description }}</div>
+                    <div class="account-footer">
+                        <a href="{{ url_for('.deliver', id=subscription.id) }}">
+                            <span class="label label-primary">Deliver</span>
+                        </a>
+                        <a href="{{ url_for('.delete_official_account', id=subscription.id) }}">
+                            <span class="label label-danger">Delete</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
+{% endblock %}

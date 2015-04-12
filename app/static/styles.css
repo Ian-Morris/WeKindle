@@ -1,0 +1,37 @@
+.profile-thumbnail {
+    position: absolute;
+}
+.profile-header {
+    min-height: 260px;
+    margin-left: 280px;
+}
+ul.subscriptions {
+    list-style-type: none;
+    padding: 0px;
+    margin: 16px 0px 0px 0px;
+    border-top: 1px solid #e0e0e0;
+}
+ul.subscriptions li.subscription {
+    padding: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+ul.subscriptions li.subscription:hover {
+    background-color: #f0f0f0;
+}
+div.account-name {
+    float: right;
+}
+div.account-title {
+    font-weight: bold;
+}
+div.subscribed-content{
+    margin-left: 48px;
+    min-height: 48px;
+}
+div.account-description {
+    float: center;
+g
+div.account-footer {
+    text-align: right;
+}
+
